@@ -10,3 +10,4 @@ Conception du jeu le juste prix avec NodeJS
 - [x] - Création d'un router
 - [x] - Création d'un premier controller
 - [x] - Implémentation du controller précédemment créer
+- [x] - Implémentation des commentaires en tout genre
