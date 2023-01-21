@@ -1,9 +1,6 @@
 const router = require("express").Router();
+const myController = require("../App/controllers");
 
-
-
-router.get("/", (_, res) => {
-  res.status(200).send("coucou");
-});
+router.get("/", myController.getHome);
 
 module.exports = router;
