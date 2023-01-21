@@ -9,10 +9,12 @@ const express = require("express");
 
 /**
  * ========================================================================================
- * EXPRESS INITIALIZED
+ * EXPRESS, PORT AND HOSTNAME INITIALIZED
  * ========================================================================================
  */
 const app = express();
+const PORT = process.env.PORT || 3000;
+const HOSTNAME = process.env.HOSTNAME ?? ("localhost" || "127.0.0.1");
 
 /**
  * ========================================================================================
@@ -40,6 +42,6 @@ app.use("/", myRouter);
  * SERVER STARTED AT
  * ========================================================================================
  */
-app.listen(process.env.PORT, () =>
-  console.log(`Server has been started at http://localhost:${process.env.PORT}`)
+app.listen(PORT, () =>
+  console.log(`Server has been started at http://${HOSTNAME}:${PORT}`)
 );
