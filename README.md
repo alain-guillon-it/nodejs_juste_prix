@@ -2,9 +2,30 @@
 
 Conception du jeu le juste prix avec NodeJS
 
+## Idée du projet
+
+L'idée du projet est de concevoir un programme qui permettrait de retrouver le prix d'un produit qui aurait été configurer en parallèle par un administrateur.
+
+Il faudrait donc une partie connexion et configuration.
+
+On pourrait accéder à une phase de configuration si nous disposons d'un compte spécifique à la configuration. La configuration comprendrait, le nom du produit, une désignation, un prix à trouver et probablement une image à gérer plus tard.
+
+On pourrait gérer une liste de produit, la modifier ou supprimer un quelconque élement.
+
+Une fois la partie configuration OK, nous pourrions lancer une partie et générer aléatoirement un produit à trouver
+
+une fois le jeu lancé, le joueur devra rentrer son pseudo, et il pourra tenter de trouver le résultat selon un nombre spécifique de tentatives.
+
+Si il trouve le résultat il gagne sinon il perd et donc un message sera afficher selon la situation du moment.
+
+Une fois la partie terminer un bouton lui permettra de quitter ou recommencer sera visible à l'écran.
+
+Si l'administrateur se déconnecte alors toutes les données seront perdue.
+Ou bien en bonus si le temps le permet, il faudrait stocker le contenu des produit dans un fichier json.
+
 ## Evolution de l'application
 
-- [ ] -
+- [x] - Ajout d'une idée du projet dans la partie README.md
 - [x] - Implémentation de la dépendance colors
 - [x] - Implémentation de la dépendance boxen
 - [x] - Suppression de la dépendance boxen pour boxen@5.1.2 compatible avec les "requires"
