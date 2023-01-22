@@ -1,0 +1,109 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+  filter: grayscale(100%);
+}
+
+body {
+  overflow: hidden;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 56px 1fr 150px;
+  grid-template-areas:
+    "headerContainer"
+    "contentContainer"
+    "footerContainer";
+  background-color: antiquewhite;
+}
+
+header,
+footer {
+  background-color: #333;
+  color: antiquewhite;
+}
+
+header {
+  grid-area: headerContainer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header span {
+  margin-left: 16px;
+}
+header ul {
+  margin-right: 16px;
+  display: flex;
+  align-items: center;
+  height: 56px;
+  list-style: none;
+}
+header ul li {
+  margin: 0 8px;
+}
+header ul li:last-child {
+  margin: 0;
+}
+header ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 700;
+}
+header ul li a.btn {
+  padding: 8px 16px;
+}
+header ul li a.btn-warning {
+  background-color: lightgoldenrodyellow;
+}
+header ul li a.btn-info {
+  background-color: lightpink;
+}
+header ul li a.btn-primary {
+  background-color: lightskyblue;
+}
+header ul li a.btn-danger {
+  background-color: lightcoral;
+}
+header ul li a.btn-white {
+  background-color: #f1f1f1;
+}
+header ul li a.btn-success {
+  background-color: lightgreen;
+}
+
+main {
+  grid-area: contentContainer;
+  color: #333;
+  max-width: 996px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+main article {
+  padding: 50px;
+}
+
+main article h1 {
+  padding-bottom: 25px;
+  text-transform: uppercase;
+  text-align: center;
+}
+main article p {
+  letter-spacing: 1.4px;
+}
+
+footer {
+  grid-area: footerContainer;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}

@@ -4,7 +4,16 @@
  * ========================================================================================
  */
 const getHome = (_, res) => {
-  res.status(200).send("coucou");
+  res.status(200).render("pages/HomeView", {
+    data: {
+      header: {
+        title: "Page d'accueil",
+      },
+      body: {
+        h1: "Le juste Prix avec NodeJS",
+      },
+    },
+  });
 };
 
 /**

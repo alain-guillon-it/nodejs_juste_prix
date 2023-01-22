@@ -25,6 +25,14 @@ Ou bien en bonus si le temps le permet, il faudrait stocker le contenu des produ
 
 ## Evolution de l'application
 
+- [x] - Ajout de la structure ejs pour la connexion
+- [x] - Ajout des partials \_footer & \_header
+- [x] - Ajout de la dépendance dotenv + configuration
+- [x] - Ajout du middleware cookie-session + configuration
+- [x] - Ajout du middleware morgan + configuration
+- [x] - Ajout du middleware express.json
+- [x] - Ajout du middleware express.urlencoded
+- [x] - Ajout de la configuration de EJS
 - [x] - Ajout d'une idée du projet dans la partie README.md
 - [x] - Implémentation de la dépendance colors
 - [x] - Implémentation de la dépendance boxen
