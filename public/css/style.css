@@ -10,7 +10,6 @@ img {
 }
 
 body {
-  overflow: hidden;
   min-height: 100vh;
   display: grid;
   grid-template-columns: 1fr;
@@ -96,11 +95,51 @@ main article h1 {
   padding-bottom: 25px;
   text-transform: uppercase;
   text-align: center;
+  font-size: 32px;
 }
 main article p {
   letter-spacing: 1.4px;
+  margin-bottom: 25px;
+  text-align: center;
 }
 
+main article form {
+  background-color: #f1f1f1;
+  box-shadow: 0 0 8px #333;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+}
+main article form div.form-container {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+main article form div.form-container label {
+  font-weight: 700;
+  margin-right: 25px;
+}
+main article form div.form-container input {
+  padding: 5px 10px;
+  flex-grow: 1;
+}
+main article form button {
+  padding: 8px 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 8px;
+  width: 50%;
+  margin: 25px auto 0;
+  cursor: pointer;
+}
+main article form button.btn-primary {
+  background-color: rgb(189, 230, 255);
+  transition: background-color 0.4s ease-in-out;
+}
+main article form button.btn-primary:hover {
+  background-color: skyblue;
+}
 footer {
   grid-area: footerContainer;
   display: flex;

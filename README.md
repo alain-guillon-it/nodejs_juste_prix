@@ -25,6 +25,7 @@ Ou bien en bonus si le temps le permet, il faudrait stocker le contenu des produ
 
 ## Evolution de l'application
 
+- [x] - Ajout du css pour la partie home
 - [x] - Ajout de la structure ejs pour la connexion
 - [x] - Ajout des partials \_footer & \_header
 - [x] - Ajout de la dépendance dotenv + configuration
