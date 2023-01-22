@@ -1,0 +1,21 @@
+<%- include("../partials/_header.ejs") %>
+<main>
+  <img src="/presentation.png" alt="" />
+  <article>
+    <h1><%= data.body.h1 %></h1>
+    <p>
+      Allez c'est partie <%= data.body.userLogin %>, tu vas devoir deviner le
+      prix de cet objet :
+    </p>
+    <figure>
+      <img
+        src="<% data.game.objectCover %>"
+        alt="Représentation de
+      l'objet"
+      />
+      <figcaption><%= data.game.objectName %></figcaption>
+    </figure>
+    <p>Tu auras seulement : <%= data.game.tentative %> tentatives possible</p>
+  </article>
+</main>
+<%- include("../partials/_footer.ejs") %>

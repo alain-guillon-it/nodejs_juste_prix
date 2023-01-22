@@ -1,17 +1,14 @@
 <nav>
   <ul>
-    <li><a class="btn btn-white" href="/">Accueil</a></li>
-    <% if ( data.header.title ) { %>
-    <li><a class="btn btn-info" href="/register">S'inscrire</a></li>
-    <li><a class="btn btn-primary" href="/login">Connexion</a></li>
-    <% } else if ( data.header.title ) { %>
-    <li><a class="btn btn-success" href="/play">Jouer</a></li>
-    <li>
-      <a class="btn btn-warning" href="/play/configuration"
-        >Configuration du jeu</a
-      >
-    </li>
-    <li><a class="btn btn-danger" href="/logout">Déconnection</a></li>
+    <li><a class="btn btn-white" href="/">Home</a></li>
+    <% if ( !data.header.connected.user && !data.header.connected.admin ) { %>
+    <li><a class="btn btn-warning" href="/login/admin">Admin Access</a></li>
+    <% } if ( data.header.connected.admin ) { %>
+    <li><a class="btn btn-primary" href="/login/user">User Access</a></li>
+    <% } if ( data.header.connected.user ) { %>
+    <li><a class="btn btn-success" href="/play">Play</a></li>
+    <li><a class="btn btn-warning" href="/play/config">Config</a></li>
+    <li><a class="btn btn-danger" href="/logout">Logout</a></li>
     <% } %>
   </ul>
 </nav>

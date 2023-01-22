@@ -6,6 +6,7 @@
 require("colors");
 require("dotenv").config();
 const boxen = require("boxen");
+const morgan = require("morgan");
 const { join } = require("path");
 const favicon = require("serve-favicon");
 const cookieSession = require("cookie-session");
@@ -26,7 +27,7 @@ const HOSTNAME = process.env.HOSTNAME ?? ("localhost" || "127.0.0.1");
  * ========================================================================================
  */
 app.set("view engine", "ejs");
-// app.set("views", join(__dirname, "autres_folder"));
+// app.set("views", join(__dirname, "autre_folder"));
 
 /**
  * ========================================================================================
@@ -40,6 +41,7 @@ const myRouter = require("./router/index.routes");
  * MIDDLEWARES
  * ========================================================================================
  */
+app.use(morgan("dev"));
 app.use(favicon(join(__dirname, "public", "favicon", "favicon.ico")));
 /**
  * secure: recommandé d'être à true pour un site en https
@@ -49,7 +51,7 @@ app.use(favicon(join(__dirname, "public", "favicon", "favicon.ico")));
 app.use(
   cookieSession({
     secret: process.env.SECRET_SESSION,
-    secure: false
+    secure: false,
   })
 );
 app.use(express.static(join(__dirname, "public")));
@@ -61,6 +63,12 @@ app.use(express.urlencoded({ extended: true }));
  * ========================================================================================
  */
 app.use("/", myRouter);
+
+app.use("/error/:code", (req, res) => {
+  res.status(Number(req.params.code)).json({
+    errorCode: req.params.code,
+  });
+});
 
 /**
  * ========================================================================================
@@ -78,13 +86,13 @@ app.listen(PORT, () =>
         borderColor: "yellow",
         padding: {
           top: 1,
-          left: 1,
-          right: 1,
+          left: 40,
+          right: 40,
           bottom: 1,
         },
         margin: {
-          top: 1,
-          bottom: 1,
+          top: 2,
+          bottom: 2,
         },
         dimBorder: true,
         float: "center",

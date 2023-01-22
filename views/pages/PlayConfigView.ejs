@@ -1,0 +1,72 @@
+<%- include("../partials/_header.ejs") %>
+<main>
+  <img src="/images/configuration.webp" alt="" />
+  <article>
+    <% if ( !data.body.adminLogin ) { %>
+    <h1>test</h1>
+    <p>test2</p>
+    <% } else if (data.body.adminLogin ) { %>
+    <h1><%= data.body.h1 %></h1>
+    <p>
+      Hello <strong><%= data.body.adminLogin %></strong>, ici tu pourras créer ton objet sur mesure :D.
+      Ne rends pas le jeu trop compliqué.
+    </p>
+    <form action="/play/config/create" method="post">
+      <div class="form-container">
+        <label for="name">Nom de l'objet :</label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          placeholder="Le nom de l'objet ici"
+          autofocus
+        />
+      </div>
+      <div class="form-container">
+        <label for="cover">Cover de l'objet (URL) :</label>
+        <input
+          type="url"
+          name="cover"
+          id="cover"
+          placeholder="L'url de l'objet à trouver ici"
+        />
+      </div>
+      <div class="form-container">
+        <label for="description">Description de l'objet :</label>
+        <textarea
+          name="description"
+          id="description"
+          rows="6"
+          placeholder="La description de l'oibjet ici"
+        ></textarea>
+      </div>
+      <div class="form-container">
+        <label for="cover">Prix de cet objet :</label>
+        <input
+          type="number"
+          min="1"
+          max="1000000"
+          name="price"
+          id="price"
+          placeholder="Le prix de l'objet, entre 1 et 1 milion (1.000.000) d'euros"
+          value="1"
+        />
+      </div>
+      <div class="form-container">
+        <label for="tentative">Nombre de tentatives</label>
+        <input
+          type="number"
+          min="3"
+          max="25"
+          name="tentative"
+          id="tentative"
+          placeholder="Le nombre de tentatives possible 3 minimums et 25 maximum"
+          value="3"
+        />
+      </div>
+      <button class="btn btn-success type="submit">Créer l'objet</button>
+    </form>
+    <% }%>
+  </article>
+</main>
+<%- include("../partials/_footer.ejs") %>
