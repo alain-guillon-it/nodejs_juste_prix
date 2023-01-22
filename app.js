@@ -8,7 +8,7 @@ require("dotenv").config();
 const boxen = require("boxen");
 const { join } = require("path");
 const favicon = require("serve-favicon");
-const expressSession = require("express-session");
+const cookieSession = require("cookie-session");
 const express = require("express");
 
 /**
@@ -44,17 +44,16 @@ app.use(favicon(join(__dirname, "public", "favicon", "favicon.ico")));
 /**
  * secure: recommandé d'être à true pour un site en https
  * resave: Force la resauvegarde de la session même si pas modifié à mettre à false
- * maxAge: 60000 correspond à 1 minute en milliseconde
+ * maxAge: 60 * 1000 correspond à 1 minute en milliseconde
  **/
 app.use(
-  expressSession({
+  cookieSession({
     secret: process.env.SECRET_SESSION,
-    secure: true,
-    resave: false,
-    maxAge: 60000,
+    secure: false
   })
 );
 app.use(express.static(join(__dirname, "public")));
+app.use(express.urlencoded({ extended: true }));
 
 /**
  * ========================================================================================

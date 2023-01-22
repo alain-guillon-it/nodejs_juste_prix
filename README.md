@@ -25,6 +25,10 @@ Ou bien en bonus si le temps le permet, il faudrait stocker le contenu des produ
 
 ## Evolution de l'application
 
+- [x] - Ajout des middleware pour gérer la saisie dans les formulaires
+- [x] - Création du controller postConnexion afin de découvrir ce que je récupère.
+- [x] - Ajout controller getConnexion pour la partie connexion.
+- [x] - Ajout de la page connexion plus implémentation de sa structure CSS
 - [x] - Ajout du css pour la partie home
 - [x] - Ajout de la structure ejs pour la connexion
 - [x] - Ajout des partials \_footer & \_header
