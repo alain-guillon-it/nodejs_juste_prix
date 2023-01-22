@@ -15,6 +15,18 @@ const getHome = (_, res) => {
     },
   });
 };
+const getConnexion = (_, res) => {
+  res.status(200).render("pages/LoginView", {
+    data: {
+      header: {
+        title: "Connexion",
+      },
+      body: {
+        h1: "Connexion",
+      },
+    },
+  });
+};
 
 /**
  * ========================================================================================
@@ -23,4 +35,5 @@ const getHome = (_, res) => {
  */
 module.exports = {
   getHome,
+  getConnexion,
 };

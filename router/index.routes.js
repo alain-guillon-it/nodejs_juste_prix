@@ -18,18 +18,7 @@ const myController = require("../App/controllers");
  * ========================================================================================
  */
 router.get("/", myController.getHome);
-router.get("/login", (req, res) => {
-  res.status(200).render("pages/LoginView", {
-    data: {
-      header: {
-        title: "Connexion",
-      },
-      body: {
-        h1: "Connexion",
-      },
-    },
-  });
-});
+router.get("/login", myController.getConnexion);
 
 /**
  * ========================================================================================
