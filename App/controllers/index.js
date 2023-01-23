@@ -29,10 +29,7 @@ function myOptions(
             adminPassword === request.session.adminPassword
               ? true
               : false,
-          user:
-            request.session.userLogin && request.session.userPassword
-              ? true
-              : false,
+          username: request.session.userLogin ? true : false,
         },
       },
       body: {
@@ -59,7 +56,6 @@ function myOptions(
  */
 const getHome = (req, res) => {
   console.log(process.env.TOTO);
-
   const result = myOptions(req, "Page d'accueil", "Bienvenue sur ce jeu");
   res.status(200).render("pages/HomeView", result);
 };
@@ -72,20 +68,16 @@ const getLogin = (req, res) => {
   if (req.url == "/login/admin") {
     const result = myOptions(req, "Connexion", "Connexion Administrateur");
     res.status(200).render("pages/LoginAdminView", result);
-  } else if (req.url == "/login/user") {
-    const result = myOptions(req, "Connexion", "User Connexion");
-    res.status(200).render("pages/LoginUserView", result);
+  } else if (req.url == "/login/username") {
+    const result = myOptions(req, "Username", "Nom du joueur");
+    res.status(200).render("pages/UsernameView", result);
   }
 };
 
 const getPlay = (req, res) => {
-  if (adminLogin && adminPassword && !req.session.userLogin) {
-    res.redirect("/login/admin");
-  } else {
-    res
-      .status(200)
-      .render("pages/PlayView", myOptions(req, "Jouer", "Joue au juste prix"));
-  }
+  res
+    .status(200)
+    .render("pages/PlayView", myOptions(req, "Jouer", "Joue au juste prix"));
 };
 const getPlayConfig = (req, res) => {
   const result = myOptions(req, "Configuration", "Configuration du jeu");
@@ -113,7 +105,6 @@ const postLogin = (req, res) => {
     const compareAdminLogin = inputAdminLogin == adminLogin ? true : false;
     const compareAdminPassword =
       inputAdminPassword == adminPassword ? true : false;
-
     console.log({
       inputLogin: inputAdminLogin,
       inputPassword: inputAdminPassword,
@@ -122,23 +113,17 @@ const postLogin = (req, res) => {
       compareAdminLogin: inputAdminLogin == adminLogin ? true : false,
       compareAdminPassword: inputAdminPassword == adminPassword ? true : false,
     });
-
     if (compareAdminLogin && compareAdminPassword) {
       req.session.adminLogin = inputAdminLogin;
       req.session.adminPassword = inputAdminPassword;
-      res.redirect("/login/user");
+      res.redirect("/login/username");
     }
-  } else if (req.url == "/login/user" && req.params.role == "user") {
+  } else if (req.url == "/login/username" && req.params.role == "username") {
     const inputUserLogin = req.body.login;
-    const inputUserPassword = req.body.password;
     req.session.userLogin = inputUserLogin;
-    req.session.userPassword = inputUserPassword;
-
     console.log({
       inputUserLogin: req.session.userLogin,
-      inputUserPassword: req.session.userPassword,
     });
-
     res.redirect("/play/config");
   }
 };
@@ -160,14 +145,6 @@ const postPlayConfigCreate = (req, res) => {
   req.session.tries = Number(tentative);
 
   res.redirect("/play");
-
-  // res.status(200).json({
-  //   "nom de l'objet": req.session.objectName,
-  //   "Image URL": req.session.objectCover,
-  //   "Description de l'objet": req.session.objectDescription,
-  //   "Prix de l'objet": req.session.objectPrice,
-  //   "Nombre de tentative": req.session.tries,
-  // });
 };
 const postPlayConfigDelete = (req, res) => {
   res.status(200).send("Play Config Delete");

@@ -10,8 +10,12 @@ img {
   filter: grayscale(25%);
 }
 figure {
-  max-width: 576px;
+  width: 350px;
   margin: 25px auto;
+}
+
+h2 {
+  text-align: center;
 }
 
 body {

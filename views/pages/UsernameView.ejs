@@ -1,0 +1,25 @@
+<%- include("../partials/_header.ejs") %>
+<main>
+  <img src="/images/login.jpg" alt="" />
+  <article>
+    <h1><%= data.body.h1 %></h1>
+    <p>
+      Vous pouvez vous connectez en saisisant un nom d'utilisateur.<br />
+      Pas besoin de se prendre la tête rien n'est stocker en base de donnée.
+    </p>
+    <form action="/login/username" method="post">
+      <div class="form-container">
+        <label for="username">Username :</label>
+        <input
+          type="text"
+          name="username"
+          id="username"
+          placeholder="Un nom d'utilisateur oui"
+          autofocus
+        />
+      </div>
+      <button class="btn btn-primary type="submit">Valider ce username</button>
+    </form>
+  </article>
+</main>
+<%- include("../partials/_footer.ejs") %>

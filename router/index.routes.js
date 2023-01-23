@@ -20,7 +20,7 @@ const myController = require("../App/controllers");
 router.get(["/", "/home"], myController.getHome);
 router.get("/login", myController.redirectGetLogin);
 router.get("/login/admin", myController.getLogin);
-router.get("/login/user", myController.getLogin);
+router.get("/login/username", myController.getLogin);
 router.get("/play", myController.getPlay);
 router.get("/play/config", myController.getPlayConfig);
 router.get("/logout", myController.getLogout);

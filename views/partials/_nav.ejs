@@ -1,11 +1,11 @@
 <nav>
   <ul>
     <li><a class="btn btn-white" href="/">Home</a></li>
-    <% if ( !data.header.connected.user && !data.header.connected.admin ) { %>
+    <% if ( !data.header.connected.username && !data.header.connected.admin ) {
+    %>
     <li><a class="btn btn-warning" href="/login/admin">Admin Access</a></li>
-    <% } if ( data.header.connected.admin ) { %>
-    <li><a class="btn btn-primary" href="/login/user">User Access</a></li>
-    <% } if ( data.header.connected.user ) { %>
+    <% } else { %>
+    <li><a class="btn btn-primary" href="/login/username">Username</a></li>
     <li><a class="btn btn-success" href="/play">Play</a></li>
     <li><a class="btn btn-warning" href="/play/config">Config</a></li>
     <li><a class="btn btn-danger" href="/logout">Logout</a></li>
