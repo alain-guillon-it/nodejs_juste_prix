@@ -86,8 +86,8 @@ app.listen(PORT, () =>
         borderColor: "yellow",
         padding: {
           top: 1,
-          left: 40,
-          right: 40,
+          left: 10,
+          right: 10,
           bottom: 1,
         },
         margin: {

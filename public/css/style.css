@@ -9,6 +9,10 @@ img {
   max-height: 380px;
   filter: grayscale(25%);
 }
+figure {
+  max-width: 576px;
+  margin: 25px auto;
+}
 
 body {
   min-height: 100vh;

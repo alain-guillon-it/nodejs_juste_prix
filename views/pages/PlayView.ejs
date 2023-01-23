@@ -1,6 +1,6 @@
 <%- include("../partials/_header.ejs") %>
 <main>
-  <img src="/presentation.png" alt="" />
+  <img src="/images/presentation.png" alt="" />
   <article>
     <h1><%= data.body.h1 %></h1>
     <p>
@@ -8,14 +8,15 @@
       prix de cet objet :
     </p>
     <figure>
+      <h2><%= data.game.objectName %></h2>
       <img
-        src="<% data.game.objectCover %>"
+        src="<%= data.game.objectCover %>"
         alt="Représentation de
       l'objet"
       />
-      <figcaption><%= data.game.objectName %></figcaption>
+      <figcaption><%= data.game.objectDescription %></figcaption>
     </figure>
-    <p>Tu auras seulement : <%= data.game.tentative %> tentatives possible</p>
+    <p>Tu auras seulement : <%= data.game.tries %> tentatives possible</p>
   </article>
 </main>
 <%- include("../partials/_footer.ejs") %>

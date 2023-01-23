@@ -79,7 +79,13 @@ const getLogin = (req, res) => {
 };
 
 const getPlay = (req, res) => {
-  res.redirect("/login/user");
+  if (adminLogin && adminPassword && !req.session.userLogin) {
+    res.redirect("/login/admin");
+  } else {
+    res
+      .status(200)
+      .render("pages/PlayView", myOptions(req, "Jouer", "Joue au juste prix"));
+  }
 };
 const getPlayConfig = (req, res) => {
   const result = myOptions(req, "Configuration", "Configuration du jeu");
@@ -141,7 +147,27 @@ const postPlay = (req, res) => {
   res.status(200).send("Play");
 };
 const postPlayConfigCreate = (req, res) => {
-  res.status(200).send("Play Config Create");
+  const objectName = req.body.name;
+  const objectCover = req.body.cover;
+  const objectDescription = req.body.description;
+  const objectPrice = req.body.price;
+  const tentative = req.body.tentative;
+
+  req.session.objectName = objectName;
+  req.session.objectCover = objectCover;
+  req.session.objectDescription = objectDescription;
+  req.session.objectPrice = Number(objectPrice);
+  req.session.tries = Number(tentative);
+
+  res.redirect("/play");
+
+  // res.status(200).json({
+  //   "nom de l'objet": req.session.objectName,
+  //   "Image URL": req.session.objectCover,
+  //   "Description de l'objet": req.session.objectDescription,
+  //   "Prix de l'objet": req.session.objectPrice,
+  //   "Nombre de tentative": req.session.tries,
+  // });
 };
 const postPlayConfigDelete = (req, res) => {
   res.status(200).send("Play Config Delete");
